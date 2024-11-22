@@ -1,0 +1,136 @@
+#menu {
+  display: block; 
+}
+
+#cont-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#cont-topo a {
+  cursor: pointer;
+  list-style: none;
+  text-decoration: none;
+  margin-right: 20px;
+
+}
+
+#cont-topo a.piscar {
+  animation: piscar 1s infinite;
+}
+
+@keyframes piscar {
+  0% {opacity: 1;}
+  50% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+
+
+/* Estilo do botão para mostrar o menu */
+#ocultar-menu {
+  font-size: 30px; /* Tamanho maior do botão */
+  background: none;
+  border: none;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  padding: 10px;
+  display: none;
+  background-color: black; /* Ocultar o botão por padrão */
+  z-index: 10000;
+}
+
+/* Estilos para o contêiner de links */
+#cont-links {
+  display: flex;
+  justify-content:space-around; /* Espaça igualmente os itens */
+  align-items: center; /* Alinha os itens no centro verticalmente */
+  padding: 0 20px; /* Ajuste de espaçamento horizontal */
+  flex-direction: column;
+}
+
+#cont-links li {
+  list-style: none;
+  margin: 0 10px;
+  position: relative; /* Necessário para posicionar o submenu corretamente */
+}
+
+
+#cont-links a {
+  text-decoration: none;
+  color: black; /* Cor dos links */
+  font-weight: bold;
+  margin: 0 10px
+}
+
+/* Exibe o submenu ao passar o mouse sobre o item do menu */
+#cont-links li:hover .submenu {
+  display: block;
+}
+
+/* Submenu oculto inicialmente */
+.submenu {
+  display: none;
+  position: absolute; /* Para que o submenu apareça abaixo do item */
+  top: 100%; /* Alinha o submenu logo abaixo do item */
+  left: 0;
+  background-color: rgba(188, 188, 30, 0.9); /* Cor de fundo com opacidade */
+  padding: 10px;
+  border-radius: 5px;
+  width: auto; /* Largura do submenu em telas grandes */
+  height: auto; /* Submenu ocupa a altura da tela */
+  z-index: 999; /* Para garantir que o submenu fique acima de outros elementos */
+ 
+}
+
+/* Quando o submenu estiver visível */
+.submenu.show {
+  display: block; /* Exibe o submenu */
+}
+
+/* Estilos de navegação */
+nav {
+  background-color: rgb(223, 244, 69);
+}
+
+/* Imagens do carrossel */
+.carousel-item img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+/* Menu responsivo para telas grandes */
+@media (min-width: 768px) {
+  /* Exibe o menu quando o botão for clicado */
+  #menu {
+    display: block;
+  }
+
+  /* Exibe o botão de menu em telas grandes */
+  #ocultar-menu {
+    display: block;
+  }
+
+  /* Ajustes para o submenu em telas grandes */
+  #cont-links {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  #cont-links li {
+    margin: 5px 0;
+  }
+  
+
+  .submenu {
+    position: relative;
+    width: 100%;
+    display: none; /* Fica oculto inicialmente */
+    background: rgb(223, 244, 69);
+    padding: 10px;
+    overflow-x: 999;
+    z-index: 10000;
+  }
+}
